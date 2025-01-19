@@ -1,0 +1,7 @@
+.swiper-container {
+  overflow: hidden;
+}
+
+.head-swiper-slide.swiper-slide-active {
+  /* transform: scale(1.1) !important; */
+}
