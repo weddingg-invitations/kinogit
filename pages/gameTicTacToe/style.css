@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url(../../assets/fonts/TsukimiRounded/stylesheet.css);
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    user-select: none;
+    font-family: 'Audiowide', cursive;
+    font-family: 'Orbitron', sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* ------------------------------------------- */
+#gradient-canvas {
+    width: 100%;
+    height: 100vh;
+    --gradient-color-2: #ff8000;
+    --gradient-color-3: #3a3a3a;
+    --gradient-color-4: #ff9d00;
+    --gradient-color-1: #121212;
+}
+
+#gradient-canvas {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    z-index: -5;
+}
+
+.big-cont {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -2;
+}
+
+/* ------------------------------------------- */
+body {
+    background-color: #d0d0d0;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #0c0c0c;
+    box-shadow: 0 0 25px 0 #000000;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.logo {
+    display: inline-block;
+    height: 100%;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.logo h1 {
+    font-size: 30px;
+    font-weight: 400;
+    animation: blur1 10s ease-out infinite;
+    font-family: 'Tsukimi Rounded', sans-serif;
+    margin: 0;
+}
+
+.logo h1 span {
+    color: #FFB700;
+    font-family: 'Tsukimi Rounded', sans-serif;
+}
+
+.logo:hover {
+    text-shadow: 0 0 5px #FFB700;
+}
+
+.logo img {
+    height: 100%;
+    transition: 250ms;
+}
+
+.logo:hover>img {
+    transform: scale(1.1);
+}
+
+.go_back {
+    color: white;
+    padding: 6px 15px;
+    background-color: orange;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 250ms;
+    margin-right: 10px;
+}
+
+.go_back:hover {
+    transform: scale(1.1);
+}
+
+.btn_new_gmae {
+    padding: 15px 25px;
+    background-color: orange;
+    color: #000000;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid white;
+    margin-bottom: -10px;
+    transition: 300ms ease-in-out;
+}
+
+.btn_new_gmae:hover {
+    margin: 5px;
+}
+
+.check_cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100px;
+}
+
+.player_X_cont,
+.player_0_cont {
+    padding: 8px 14px;
+    background-color: orange;
+    color: #000000;
+    border-radius: 8px;
+    border: 2px solid white;
+    display: inline-block;
+    font-family: sans-serif;
+    margin-top: 0;
+}
+
+.player_0,
+.player_X {
+    font-family: sans-serif;
+}
+
+.big_parent {
+    position: absolute;
+    top: -10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 60px;
+}
+
+.parent {
+    position: relative;
+    transform-style: preserve-3d;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.carcas_img {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.game {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.game__wrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.game__row {
+    width: 100%;
+    height: calc(100%/3);
+    display: flex;
+}
+
+.buttons {
+    position: relative;
+    width: calc(100%/3);
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    transition: transform 200ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: transparent;
+}
+
+.buttons_texts {
+    position: relative;
+    color: #fff;
+    font-size: 90px;
+    font-weight: 100;
+    text-shadow: -2px -2px 10px #FFB700, 2px 2px 10px #FFB700;
+}
+
+.animation {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 10px;
+    background-color: #FFB700;
+}
+
+.win_popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000a6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+    z-index: 10;
+}
+
+.win_popup_text {
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+    margin-top: 0;
+}
+
+.win_popup_text span {
+    display: inline-block;
+    text-shadow: -2px -2px 10px #FFB700, 2px 2px 10px #FFB700;
+    animation: winText 2s ease-in-out infinite;
+    transform: scale(1.0);
+}
+
+@keyframes winText {
+    0% {
+        text-shadow: 0 0 0 #FFB700, 0 0 0 #FFB700;
+    }
+
+    50% {
+        text-shadow: -3px -3px 20px #FFB700, 3px 3px 20px #828282;
+        transform: scale(1.4);
+    }
+
+    100% {
+        text-shadow: 0 0 0 #FFB700, 0 0 0 #FFB700;
+    }
+}
+
+.button_ok {
+    border: 2px solid #fff;
+    padding: 5px 25px 10px;
+    border-radius: 10px;
+    background: #FFB700;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.border-right::before {
+    content: '';
+    position: absolute;
+    right: -8px;
+    width: 5px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 14px 6px #FFB700;
+}
+
+.border-bottom {
+    position: relative;
+}
+
+.border-bottom::before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    box-shadow: 0 0 14px 6px #FFB700;
+    z-index: 1;
+}
+
+@media screen and (max-width:510px) {
+    .buttons_texts {
+        font-size: 15vi;
+    }
+
+    .carcas_img {
+        width: 90%;
+        height: 90%;
+        opacity: 0;
+    }
+}

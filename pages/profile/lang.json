@@ -1,0 +1,33 @@
+{
+    "en": [
+        ".mail^mail : ",
+        ".birthday^age : ",
+        ".history^history",
+        ".clearAll^clear",
+        ".Favorites^Favorites",
+        ".history_text^you don't have any stories yet",
+        ".favorite_text^you don't have any favorite videos yet",
+        ".advertising^advertising on our website",
+        ".advertising_2^in the future you can add your own advertising on our website",
+        ".delete_acc^delete account",
+        ".form_popup_paragraph^Are you sure you want to delete your profile from KinoGit?<br><br>This action is irreversible, and account recovery will be impossible.",
+        ".form_popup_btn_ok^Delete profile",
+        ".form_popup_btn_no^cancel"
+
+    ],
+    "ru": [
+        ".mail^почта : ",
+        ".birthday^возраст : ",
+        ".history^история",
+        ".clearAll^очистить",
+        ".Favorites^Избранные",
+        ".history_text^у вас пока нет историй",
+        ".favorite_text^у вас пока нет избранных видео",
+        ".advertising^реклама в нашем сайте",
+        ".advertising_2^в будущем вы можете самостоятельно добавить вашу рекламу на нашем сайте",
+        ".delete_acc^удалить аккаунт",
+        ".form_popup_paragraph^Вы уверены, что хотите удалить свой профиль с KinoGit?<br><br>Это действие необратимо, и восстановление аккаунта будет невозможно.",
+        ".form_popup_btn_ok^Удалить профиль",
+        ".form_popup_btn_no^Отменить"
+    ]
+}

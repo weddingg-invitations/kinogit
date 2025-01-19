@@ -1,0 +1,220 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+$fonts: 'Tsukimi Rounded', sans-serif;
+$colorWhite: #ffffff;
+$colorBlack: #000000;
+$bgColor: #131313;
+$color1: #1e1e1e;
+$textColor: #b7b7b7;
+
+$colororange: #ffa200;
+
+
+// reyting class add
+.orange {
+    color: #ffea00;
+}
+
+.green {
+    color: lawngreen;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: auto;
+}
+
+// -----------------------------------------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
+    font-family: $fonts;
+}
+
+body {
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    background-color: $bgColor;
+}
+
+.link {
+    color: orange;
+    font-weight: bold;
+    margin: 10px auto;
+    display: inline-block;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// ------------------------
+header {
+    width: 100%;
+}
+
+.head-top-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #ffffff;
+    background-color: #0c0c0c;
+    box-shadow: 0 0 25px 0 #000000;
+    padding: 0 25px;
+}
+
+.links-cont {
+    .links {
+        font-size: 18px;
+        margin-left: 5px;
+        transition: 250ms;
+        padding-bottom: 0px;
+
+        &:hover {
+            border-bottom: 1px solid;
+            padding-bottom: 4px;
+        }
+    }
+}
+
+.logo {
+    font-size: 30px;
+    padding: 5px;
+    font-weight: 400;
+    animation: blur1 10s ease-out infinite;
+    overflow: hidden;
+    cursor: pointer;
+
+    span {
+        color: $colororange;
+    }
+
+    &:hover {
+        text-shadow: 0 0 5px $colororange;
+    }
+}
+
+main {
+    padding: 40px 50px;
+
+    .Privacy-Polic-cont {
+        color: $colorWhite;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: $colororange;
+        }
+
+        h4 {
+            margin: 10px 0;
+            color: $colororange;
+        }
+
+        p {
+            color: $colorWhite;
+            margin: 5px 20px;
+        }
+
+        span {
+            color: $colororange;
+        }
+
+        ul {
+            list-style-type: disclosure-closed;
+        }
+    }
+}
+
+
+.links-cont {
+    .links {
+        font-size: 18px;
+        margin-left: 5px;
+        transition: 250ms;
+        padding-bottom: 0px;
+        transition: 350px;
+
+        &:hover {
+            border-bottom: 1px solid;
+            padding-bottom: 4px;
+        }
+    }
+
+    .home {
+        color: $colororange;
+    }
+}
+
+.mob_open_close {
+    width: 40px;
+    display: none;
+    transition: 250ms;
+    cursor: pointer;
+
+    &:hover {
+        filter: drop-shadow(0 0 6px $colorWhite);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        z-index: 6;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .mob_open_close {
+        display: inline-block;
+    }
+
+    .links-cont {
+        position: absolute;
+        right: 0;
+        top: -300px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        line-height: 35px;
+        background-color: #0c0c0c;
+        transition: 0;
+        border-radius: 0 0 0 15px;
+        z-index: 2;
+
+        .links {
+            transition: 0;
+            font-size: 14px;
+
+            &:hover {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            &:active {
+                color: $colororange;
+            }
+        }
+    }
+
+    .links-cont-active {
+        top: 55px;
+    }
+
+    main .Privacy-Polic-cont h2{
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+}

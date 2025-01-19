@@ -1,0 +1,32 @@
+{
+    "en": [
+        ".home^home",
+        ".app^Application",
+        ".contact^Contacts",
+        ".title_1^Information for copyright holders",
+        ".text_1^The resource <span>KinoGit.us</span> operates in accordance with information protection and copyright laws. All materials posted on the site are taken from public information sources that are freely accessible on the Internet. The collection and posting of materials in the catalog occurs automatically. In this case, the site administration has no control over the placement of these materials and is not responsible for this material. The site administration also does not engage in activities related to the publication of unlicensed content protected by copyright holders. The automated system publishes only materials from open sources that are freely accessible.",
+        ".text_2^The resource <span>KinoGit.us</span> is always open to cooperation with copyright holders. If your exclusive rights to copyrighted objects are violated in any way through the use of this resource (such as the posting of information protected by copyright), the administration is ready to assist and remove the relevant material from the site. For inquiries, please contact us at <span>KinoGitofficiall@gmail.com</span>.",
+        ".text_3^In the event of a dispute, we ask you to send us an email specifying the following:",
+        ".text_4^1. Documentary proof of your rights to the copyrighted material:",
+        ".text_5^- A scanned document with a seal, or",
+        ".text_6^- An email from the official email domain of the copyright holder's company, or",
+        ".text_7^- Any other information that unequivocally identifies you as the copyright holder of the material in question.",
+        ".text_8^2. Direct link to the webpage containing the material that has been published in violation of copyright.",
+        ".text_9^Upon receipt of the email containing this confirmation, we will remove copyrighted content from the website within 48 hours."
+    ],
+    "ru": [
+        ".home^на главную",
+        ".app^Приложение",
+        ".contact^Контакты",
+        ".title_1^Информация для правообладателей",
+        ".text_1^Ресурс <span>KinoGit.us</span> действует в соответствии с законом о защите информации и авторских прав. Все материалы, размещенные на сайте, взяты из публичных источников информации, находящихся в свободном доступе в сети Интернет. Сбор и размещение материалов в каталоге происходит в автоматическом режиме. Администрация сайта в данном случае не имеет контроля над размещением этих материалов и не несет ответственности за этот материал. Администрация сайта также не осуществляет деятельность, связанную с публикацией нелицензионного контента, находящегося под защитой правообладателей. Автоматизированная система публикует только материалы из открытых источников, находящихся в свободном доступе.",
+        ".text_2^Ресурс <span>KinoGit.us</span> всегда открыт для сотрудничества с правообладателями. Если ваши исключительные права на объекты авторской собственности нарушаются каким-либо образом с использованием данного ресурса (размещение информации, защищенной авторским правом), администрация готова оказать содействие и удалить с сайта соответствующий материал. Email для обращения <span>KinoGitofficiall@gmail.com</span>",
+        ".text_3^При возникновении спорных ситуаций мы просим прислать нам письмо в электронном виде, где необходимо указать следующее:",
+        ".text_4^1. Документальное подтверждение ваших прав на материал, защищённый авторским правом:",
+        ".text_5^- отсканированный документ с печатью, либо",
+        ".text_6^- email с официального почтового домена компании правообладателя, либо",
+        ".text_7^- иная информация, позволяющая однозначно идентифицировать вас как правообладателя данного материала.",
+        ".text_8^2. Прямую ссылку на страницу сайта, которая содержит материал, опубликованный с нарушением авторских прав.",
+        ".text_9^При получении письма, содержащего данное подтверждение, мы в течение 48 часов удалим с сайта защищенный авторским правом контент."
+    ]
+}

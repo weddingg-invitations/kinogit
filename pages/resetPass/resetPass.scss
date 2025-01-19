@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+$colorWhite: #ffffff;
+$colorBlack: #000000;
+$bgColor: #060606;
+$color1: #1e1e1e;
+$textColor: #b7b7b7;
+
+$colororange: #FFB700;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
+    font-family: "Tsukimi Rounded", sans-serif;
+}
+
+body {
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    background-color: $bgColor;
+    color: $colorWhite;
+    width: 100%;
+    height: 100vh;
+}
+.head-top-cont>.logo{
+    position: relative;
+    top: 8px;
+    left: 8px;
+}
+.logo {
+    font-size: 30px;
+    font-weight: 400;
+    overflow: hidden;
+    cursor: pointer;
+
+    span {
+        color: $colororange;
+    }
+
+    &:hover {
+        text-shadow: 0 0 5px $colororange;
+    }
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92%;
+}
+
+.main_wrapper {
+    color: $colorWhite;
+    width: 50%;
+    min-width: 280px;
+    border-radius: 4px;
+    background-color: $colorBlack;
+    border: 2px solid $colororange;
+    text-transform: capitalize;
+    padding: 30px 0;
+}
+
+// --------------
+.send_mail_cont,
+.reset_password_cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .helper_text {
+        margin-bottom: 20px;
+        color: #ffa301;
+        font-size: 11px;
+        font-family: system-ui;
+        text-align: center;
+    }
+
+    .input_box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .labels {
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
+
+    .inputs {
+        border: none;
+        outline: none;
+        background: $color1;
+        color: $colorWhite;
+        border-radius: 5px;
+        padding: 5px;
+        margin-left: 5px;
+        margin-bottom: 20px;
+        width: 200px;
+    }
+    .input_box_items{
+        position: relative;
+    }
+
+    .check {
+        position: absolute;
+        top: 5px;
+        right: -15px;
+        display: inline-block;
+        font-size: 11px;
+    }
+
+    .send_mail_btn,
+    .send_password_btn {
+        display: inline-block;
+        border: none;
+        outline: none;
+        color: $colorWhite;
+        width: fit-content;
+        margin: 0 auto;
+        background-color: $color1;
+        transition: 250ms;
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e89700;
+        }
+    }
+}

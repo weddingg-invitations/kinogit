@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="../../site.webmanifest">
+    <link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#1d1d1d">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <!-- off Cache-Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- loader -->
+    <link rel="stylesheet" href="../../css/loader/loader.css?v10">
+    <!-- helper -->
+    <link rel="stylesheet" href="../../css/helper/helper.css?v10">
+    <!-- fonts -->
+    <link rel="stylesheet" href="../../assets/fonts/TsukimiRounded/stylesheet.css?v10">
+    <link rel="stylesheet" href="../../assets/fonts/Inter/inter.css?v10">
+    <!-- swiper -->
+    <link rel="stylesheet" href="../../css/swiper/swiper-bundle.min.css?v10">
+    <link rel="stylesheet" href="../../css/swiper/swiperStyles.css?v10">
+    <!-- main -->
+    <link rel="stylesheet" href="profile.css?v10">
+
+    <title>KinoGit</title>
+</head>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(97366908, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/97366908" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+<body>
+    <div class="loader">
+        <div class="loader-wrapper">
+            <svg class="pl" viewBox="0 0 176 160" width="176px" height="160px" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="pl-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="hsl(33,90%,55%)" />
+                        <stop offset="30%" stop-color="hsl(33,90%,55%)" />
+                        <stop offset="100%" stop-color="hsl(3,90%,55%)" />
+                    </linearGradient>
+                </defs>
+                <g fill="none" stroke-width="16" stroke-linecap="round">
+                    <circle class="pl__ring" r="56" cx="88" cy="96" stroke="hsla(0,10%,10%,0.1)" />
+                    <path class="pl__worm1" d="M144,96A56,56,0,0,1,32,96" stroke="url(#pl-grad)"
+                        stroke-dasharray="43.98 307.87" />
+                    <path class="pl__worm2" d="M32,136V96s-.275-25.725,14-40" stroke="hsl(33,90%,55%)"
+                        stroke-dasharray="0 40 0 44" stroke-dashoffset="0.001" visibility="hidden" />
+                    <path class="pl__worm3" d="M144,136V96s.275-25.725-14-40" stroke="hsl(33,90%,55%)"
+                        stroke-dasharray="0 40 0 44" stroke-dashoffset="0.001" visibility="hidden" />
+                </g>
+            </svg>
+
+            <div class="logo-loader">
+                <h2>Kino<span>Git</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="app">
+        <header>
+            <div class="head-top-cont">
+                <a href="../../index.html" class="logo">
+                    <h1>Kino<span>Git</span></h1>
+                </a>
+                <form action="../../backend/logout.php" method="post">
+                    <div class="log-aut">
+                        <input class="log__aut" type="submit" name="submit" value="выйти">
+                    </div>
+                </form>
+            </div>
+        </header>
+        <main id="main">
+            <div class="main_Wrapper">
+                <div class="personalInfo">
+                    <div class="personalInfo_cont">
+                        <div class="box">
+                            <!-- <img src="../../assets/img/Sample_User_Icon.png" alt="person"> -->
+                            <span class="user_first_letter"></span>
+                            <div>
+                                <h3 class="title_nume"><b class="nameSurname"></b><span id="_nameSurname"></span></h3>
+                                <p><b class="mail">почта : </b><span id="_mail"></span></p>
+                                <p><b class="birthday">возраст : </b><span id="_birthday"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main_sliderCont main_sliderCont_history">
+                    <div class="main_items">
+                        <div class="main_items_imgCont main_items_imgCont-redact">
+                            <img class="main_items_img_history" src="../../assets/svg/history.svg" alt="history">
+                        </div>
+                        <div class="main_items_textCont main_items_textCont_history">
+                            <h4 class="history">история</h4>
+                        </div>
+                        <div class="clearAll clearAll_history" id="btn_clearAll_history">очистить</div>
+                    </div>
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <p class="history_text">у вас пока нет историй</p>
+                        <div class="swiper-wrapper" id="swiper_wrapper_history">
+                            <!-- <div class="swiper-slide">
+                                <span class='deleteMovie'>X</span>
+                                <img src="../../assets/img/BG-main/589735.png">
+                                <p>text</p>
+                            </div> -->
+                        </div>
+                        <div class="swiper-button-next history-buttons"></div>
+                        <div class="swiper-button-prev history-buttons"></div>
+                        <div class="swiper-pagination swiper-pagination-1"></div>
+                    </div>
+                </div>
+                <div class="main_sliderCont main_sliderCont_favorite">
+                    <div class="main_items">
+                        <div class="main_items_imgCont">
+                            <img class="main_items_img_favorite" src="../../assets/svg/favorite.svg" alt="favorite">
+                        </div>
+                        <div class="main_items_textCont main_items_textCont_favorite">
+                            <h4 class="Favorites">Избранные</h4>
+                        </div>
+                        <div class="clearAll clearAll_boockmark" id="btn_clearAll_boockmark">очистить</div>
+                    </div>
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper favorite_cont">
+                        <p class="favorite_text">у вас пока нет избранных видео</p>
+                        <div class="swiper-wrapper" id="swiper_wrapper_favorite">
+                            <!-- <div class="swiper-slide">
+                                <span class='deleteMovie'>X</span>
+                                <img src="../../assets/img/BG-main/589735.png">
+                                <p>text</p>
+                            </div> -->
+                        </div>
+                        <div class="swiper-button-next favorite-buttons"></div>
+                        <div class="swiper-button-prev favorite-buttons"></div>
+                        <div class="swiper-pagination swiper-pagination-2"></div>
+                    </div>
+                </div>
+                <div class="main_sliderCont main_sliderCont_ads">
+                    <div class="main_items row">
+                        <div class="main_items_imgCont">
+                            <img class="main_items_img_ads" src="../../assets/svg/ads.svg" alt="ads">
+                        </div>
+                        <div class="main_items_textCont main_items_textCont_advertising">
+                            <h4 class="advertising">реклама в нашем сайте</h4>
+                            <p class="advertising_2">в будущем вы можете самостоятельно добавить вашу рекламу на нашем
+                                сайте</p>
+                        </div>
+                        <div class="main_items_imgCont main_items_imgCont_Rot">
+                            <img class=" main_items_img_ads" src="../../assets/svg/ads.svg" alt="favorite">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Initialize Swiper -->
+                <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-wrapper">
+                <a href="../../index.html" class="logo">
+                    <h1>Kino<span>Git</span></h1>
+                </a>
+            </div>
+
+            <form action="../../backend/delete_acc.php" method="post" id="delete_acc_form">
+                <button type="submit" class="delete_acc" mane="delete_acc">удалить аккаунт</button>
+            </form>
+
+            <div class="form_popup_wrapper">
+                <div class="form_popup">
+                    <p class="form_popup_paragraph">Вы уверены, что хотите удалить свой профиль с KinoGit?
+                        <br>
+                        <br>
+                        Это действие необратимо, и восстановление аккаунта будет невозможно.
+                    </p>
+                    <div class="form_popup_btn">
+                        <div class="form_popup_btn_ok">Удалить профиль</div>
+                        <div class="form_popup_btn_no">Отменить</div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+    <script type="text/javascript" src="./profile.js?v10"></script>
+    <script type="text/javascript" src="./guests.js?v10"></script>
+    <script type="text/javascript" src="./lang.js?v10"></script>
+</body>
+
+</html>

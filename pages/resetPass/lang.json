@@ -1,0 +1,12 @@
+{
+    "en": [
+        ".helper_text^Your email",
+        ".label_1^Email",
+        ".send_mail_btn^Send"
+    ],
+    "ru": [
+        ".helper_text^ваша электронная почта",
+        ".label_1^электронная почта",
+        ".send_mail_btn^отправить"
+    ]
+}
