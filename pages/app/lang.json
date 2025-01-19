@@ -1,0 +1,25 @@
+{
+    "en": [
+        ".home^Home",
+        ".faq^FAQ",
+        ".Copyright_Holders^Copyright holders",
+        ".contact^Contacts",
+        
+        ".title_1^Dear visitors!",
+        ".paragraph_1^Our website is fully optimized for viewing on mobile devices.",
+        ".paragraph_2^We have not created any applications for mobile devices such as <span>iPad</span>, <span>iPhone</span>, <span>App</span>, or <span>Android</span>, and we are not responsible for any similar ones found on the internet.",
+        ".paragraph_3^Any mobile application that you find on the internet or in <span>Apple</span> or <span>Android</span> stores offering access to <span>KinoGit</span> is installed at your own risk. For the safety of your tablets and mobile devices, we strongly advise against attempting to install such applications, even if they claim to be official and provide a link to our website.",
+        ".title_2^Sincerely, site administration"
+    ],
+    "ru": [
+        ".home^на главную",
+        ".faq^FAQ",
+        ".Copyright_Holders^Правообладателям",
+        ".contact^Контакты",
+        ".title_1^Уважаемые посетители!",
+        ".paragraph_1^Наш сайт полностью оптимизирован для просмотра на мобильных устройствах.",
+        ".paragraph_2^Мы не создавали приложений для мобильных устройств <span>iPad</span>, <span>iPhone</span> <span>App</span> или <span>Android</span>, и не несем ответственность за подобные в интернете.!",
+        ".paragraph_3^Любое приложение для мобильных устройств, которое вы найдете в интернете, в магазинах <span>Apple</span> или <span>Android</span> предлагающее просмотр <span>KinoGit</span>, вы устанавливаете на свой страх и риск, и в целях безопасности ваших планшетов и мобильных мы настоятельно не рекомендуем пробовать устанавливать подобные приложения, даже если там написано что оно официальное и есть ссылка на наш сайт.",
+        ".title_2^C уважением, администрация сайта"
+    ]
+}

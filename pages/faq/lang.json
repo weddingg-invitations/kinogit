@@ -1,0 +1,43 @@
+{
+    "en": [
+        ".home^home",
+        ".Copyright_Holders^Copyright holders",
+        ".Application^Application",
+        ".contact^Contacts",
+
+        ".faq^Frequently Asked Questions",
+        ".title_1^1. It's likely that your browser has old data, which could cause the website to function improperly.",
+        ".paragraph_1^Try first <span>clearing your browser's cache</span> using the button.",
+        ".btn_clear_catch^Clear browser cache",
+        ".paragraph_2^If that doesn't help, try <span>manually clearing the cache</span> through your browser settings.",
+        ".title_2^2. After watching the advertisement, the movie doesn't start.",
+
+        ".paragraph_3^Make sure that",
+        ".text_1^installed by going to the flash player download page",
+        ".paragraph_4^<p><span>2)</span> In the <span>Safari</span> browser, make sure that the plugin is <span><a class='link' href='https://www.adobe.com/products /flashplayer/' target='_blank'>Adobe Flash Player</a></span> is enabled in your browser settings.</p>",
+        ".paragraph_5^<span>3)</span> Clear your browser history.",
+        ".title_3^3. Quality selection not available?",
+        ".paragraph_6^You probably have an ad blocker installed in your browser. Please disable your ad blocker on this site."
+    ],
+    "ru": [
+        ".home^на главную",
+        ".Copyright_Holders^Правообладателям",
+        ".Application^Приложение",
+        ".contact^Контакты",
+
+        ".faq^Часто задаваемые вопросы",
+        ".title_1^1. Вероятно в вашем браузере старые данные, по этой причине сайт может работать некорректно",
+        ".paragraph_1^попробуйте сперва <span>очистить кэш</span> браузера с помощью кнопки",
+        ".btn_clear_catch^очистить кэш браузера",
+        ".paragraph_2^если не помогает, попробуйте <span>очистить кэш</span> вручную через настройки браузера",
+        ".title_2^2. После просмотра рекламы не запускается фильм",
+
+        ".paragraph_3^Убедитесь, что",
+        ".text_1^установлен перейдя на страницу загрузки флеш плеера",
+        ".paragraph_4^<p><span>2)</span> В браузере <span>Safari</span> убедитесь, что плагин <span><a class='link' href='https://www.adobe.com/products/flashplayer/' target='_blank'>Adobe Flash Player</a></span> включен в настройках браузера.</p>",
+        ".paragraph_5^<span>3)</span> Очистите историю вашего браузера.",
+        ".title_3^3. Не доступен выбор качества?",
+        ".paragraph_6^Вероятно в вашем браузере установлен блокировщик рекламы. Отключите блокировку рекламы на этом сайте."
+    
+    ]
+}

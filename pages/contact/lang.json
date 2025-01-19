@@ -1,0 +1,21 @@
+{
+    "en": [
+        ".home^Home",
+        ".faq^FAQ",
+        ".Copyright_Holders^Copyright holders",
+        ".contact^Contacts",
+        ".Application^Application",
+        ".paragraph_1^you can contact us via mail - <span>KinoGitofficiall@gmail.com",
+        ".paragraph_2^we will answer you as soon as possible. Sincerely, site administration"
+
+    ],
+    "ru": [
+        ".home^на главную",
+        ".faq^FAQ",
+        ".Copyright_Holders^Правообладателям",
+        ".contact^Контакты",
+        ".Application^Приложение",
+        ".paragraph_1^вы можете связаться с нами через почту - <span>KinoGitofficiall@gmail.com",
+        ".paragraph_2^мы ответим вам как можно скорее С уважением, администрация сайта"
+    ]
+}
