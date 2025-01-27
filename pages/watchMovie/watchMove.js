@@ -175,7 +175,7 @@ genres = [
     // -----------------
     setTimeout(() => {
         get_top_movies()
-    }, 2000);
+    }, 700);
 function get_top_movies() {
     fetch(BASE_URL + `/discover/${movie}?${language}?sort_by=popularity.desc&` + API_KEY)
         // slider top 20
