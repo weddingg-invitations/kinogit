@@ -273,22 +273,23 @@ function showMovies(data) {
 
     data.forEach(el => {
         let
-            title = el.title,
-            original_title = el.original_title,
-            release_date = el.release_date
+            title = (el.title) ? el.title : '',
+            original_title = (el.original_title) ? el.original_title : '',
+            release_date = (el.release_date) ? el.release_date : ''
 
         if (movie == 'tv') {
-            title = el.name
-            original_title = el.original_name
-            release_date = el.first_air_date
+            title = (el.name) ? el.name : ''
+            original_title = (el.original_name) ? el.original_name : ''
+            release_date = (el.first_air_date) ? el.first_air_date : ''
         }
+
         let meta_description = document.getElementById('description')
-        let descript = meta_description.getAttribute('description')
-        meta_description.setAttribute('description', `${descript + ',' + title + ',' + original_title}`)
+        const description_text = `Смотрите фильмы и сериалы онлайн в хорошем качестве на 'Kinogit.us' Новинки кино ${thisYear}, зарубежные и русские фильмы, сериалы, аниме и мультфильмы – всё бесплатно и без регистрации! Наслаждайтесь просмотром без рекламы.`
+        meta_description.setAttribute('content', `${title + ',' + original_title + ',' + release_date + ',' + description_text}`)
 
         let meta_keywords = document.getElementById('keywords')
-        let keywords = meta_description.getAttribute('keywords')
-        meta_keywords.setAttribute('description', `${keywords + ',' + title + ',' + original_title}`)
+        let keywords_text = 'Смотрите фильмы и сериалы онлайн в хорошем качестве на Kinogit.us. Новинки кино 2025, зарубежные и русские фильмы, сериалы, аниме и мультфильмы – всё бесплатно и без регистрации! Наслаждайтесь просмотром без рекламы.'
+        meta_keywords.setAttribute('content', `${keywords_text + ',' + title + ',' + original_title + ',' + release_date}`)
 
         let AllData = String(el.id + '/' + title + '/' + original_title + '/' + release_date.split('-')[0]).replaceAll("'", '') + `/${movie}`
 
