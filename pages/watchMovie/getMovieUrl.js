@@ -1,11 +1,46 @@
+
+
+
 let lication = decodeURI(window.location.search)
 
 let get_move_data = lication.slice(1, lication.length).split('/')
 
-let movie_id = get_move_data[0]
-let title_ru = get_move_data[1] ? get_move_data[1] : ''
-let title_original = get_move_data[2] ? get_move_data[2] : ''
-let yearr = get_move_data[3]
+let movie_id = get_move_data[0] ? get_move_data[0] : '';
+let title_ru = get_move_data[1] ? get_move_data[1] : '';
+let title_original = get_move_data[2] ? get_move_data[2] : '';
+let yearr = get_move_data[3] ? get_move_data[3] : '';
+
+const meta = () => {
+    let domain = new URL(window.location.href).hostname;
+    let http_or_https = window.location.protocol + "//";
+
+    const D = new Date();
+    const thisYear = D.getFullYear() // 2023
+
+    let meta_description = document.getElementById('description')
+    const description_text = `Смотрите фильмы и сериалы онлайн в хорошем качестве на 'Kinogit' Новинки кино ${thisYear}, зарубежные и русские фильмы, сериалы, аниме и мультфильмы – всё бесплатно и без регистрации! Наслаждайтесь просмотром без рекламы.`
+    meta_description.setAttribute('content', `${title_ru + ',' + title_original + ',' + yearr + ',' + description_text}`)
+
+    let meta_keywords = document.getElementById('keywords')
+    const keywords_text = 'Смотрите фильмы и сериалы онлайн в хорошем качестве на Kinogit, Kinogit.us Новинки кино 2025, зарубежные и русские фильмы, сериалы, аниме и мультфильмы – всё бесплатно и без регистрации! Наслаждайтесь просмотром без рекламы.'
+    meta_keywords.setAttribute('content', `${title_ru + ',' + title_original + ',' + yearr + '' + keywords_text}`)
+
+    let canonical = document.getElementById('canonical')
+    let x = domain + http_or_https + 'pages/watchMovie/watchMovie.html?' + title_ru + ',' + title_original
+    canonical.href = x
+
+    document.getElementById('og_title').setAttribute('content', title_ru, title_original, yearr)
+    document.getElementById('og_description').setAttribute('content', 'Смотрите фильмы и сериалы онлайн в хорошем качестве на Kinogit.us бесплатно без регистрации.')
+    document.getElementById('og_url').setAttribute('content', window.location.href)
+    document.getElementById('og_site_name').setAttribute('content', domain)
+    document.getElementById('og_type').setAttribute('content', 'video.movie')
+
+    setTimeout(() => {
+        let img = document.getElementById('about_film_poster_img').src
+        document.getElementById('og_image').setAttribute('content', img)
+    }, 3500);
+}
+meta()
 
 kinoboxTv(movie_id, title_ru, title_original, yearr)
 
