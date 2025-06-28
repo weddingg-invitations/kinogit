@@ -42,7 +42,7 @@ const meta = () => {
 }
 meta()
 
-kinoboxTv(movie_id, title_ru, title_original, yearr)
+// kinoboxTv(movie_id, title_ru, title_original, yearr)
 
 let move_data = `${title_ru} ${title_original} ${yearr}`
 
@@ -85,68 +85,68 @@ setTimeout(() => {
 }, 1500)
 
 // kinobox player settings
-function kinoboxTv(movie_id, title_ru, title_original, yearr) {
-    let movie = 'film'
+// function kinoboxTv(movie_id, title_ru, title_original, yearr) {
+//     let movie = 'film'
 
-    if (decodeURI(lication).match('tv'))
-        movie = 'series'
+//     if (decodeURI(lication).match('tv'))
+//         movie = 'series'
 
-    kbox('.kinobox_player', {
-        search: {
-            // kinopoisk: '258687', // Поиск фильма по ID Кинопоиска
-            // imdb: 'tt0816692',   // Поиск фильма по IMDb Id
-            tmdb: Number(movie_id),     // Поиск фильма по IMDb Id
-            title: title_ru,        // ru title
-            alternativeTitle: title_original, //original title
-            year: yearr,            //2024
-            type: movie,            //type Film, Series'
-        },
-        menu: {
-            enable: true, // Показывать меню
-            default: 'menu_list', // Вид меню для стандартных устройств
-            mobile: 'menu_button', // Вид меню для мобильных устройств
-            format: '{N}&nbsp;&nbsp;&nbsp; {T} ({Q})', // Формат пункта меню
-            // limit: 6, // Максимальное количество элементов в меню
-            open: false, // Открывать меню по умолчанию
-        },
-        players: {
-            alloha: {
-                enable: true,
-                position: 1
-            },
-            Cdnmovies: {
-                enable: true,
-                position: 2,
-                domain: 'https://ugly-turkey.cdnmovies-stream.online'
-            },
-            Hdvb: {
-                enable: true,
-                position: 3
-            },
-            Ashdi: {
-                enable: true,
-                position: 4
-            },
-            params: {
-                cdnmovies: { domain: 'kinogit.us' }
-            },
+//     kbox('.kinobox_player', {
+//         search: {
+//             // kinopoisk: '258687', // Поиск фильма по ID Кинопоиска
+//             // imdb: 'tt0816692',   // Поиск фильма по IMDb Id
+//             tmdb: Number(movie_id),     // Поиск фильма по IMDb Id
+//             title: title_ru,        // ru title
+//             alternativeTitle: title_original, //original title
+//             year: yearr,            //2024
+//             type: movie,            //type Film, Series'
+//         },
+//         menu: {
+//             enable: true, // Показывать меню
+//             default: 'menu_list', // Вид меню для стандартных устройств
+//             mobile: 'menu_button', // Вид меню для мобильных устройств
+//             format: '{N}&nbsp;&nbsp;&nbsp; {T} ({Q})', // Формат пункта меню
+//             // limit: 6, // Максимальное количество элементов в меню
+//             open: false, // Открывать меню по умолчанию
+//         },
+//         players: {
+//             alloha: {
+//                 enable: true,
+//                 position: 1
+//             },
+//             Cdnmovies: {
+//                 enable: true,
+//                 position: 2,
+//                 domain: 'https://ugly-turkey.cdnmovies-stream.online'
+//             },
+//             Hdvb: {
+//                 enable: true,
+//                 position: 3
+//             },
+//             Ashdi: {
+//                 enable: true,
+//                 position: 4
+//             },
+//             params: {
+//                 cdnmovies: { domain: 'kinogit.us' }
+//             },
 
-            // Videocdn: {
-            //     enable: true,
-            //     position: 3
-            // },
-            // Kodik: {
-            //     enable: true,
-            //     position: 4
-            // },
-            // Collaps: {
-            //     enable: true,
-            //     position: 7
-            // },
-            // Voidboost: {
-            //     enable: true,
-            //     position: 8
-            // },
-        }
-    });
-}
+//             // Videocdn: {
+//             //     enable: true,
+//             //     position: 3
+//             // },
+//             // Kodik: {
+//             //     enable: true,
+//             //     position: 4
+//             // },
+//             // Collaps: {
+//             //     enable: true,
+//             //     position: 7
+//             // },
+//             // Voidboost: {
+//             //     enable: true,
+//             //     position: 8
+//             // },
+//         }
+//     });
+// }
