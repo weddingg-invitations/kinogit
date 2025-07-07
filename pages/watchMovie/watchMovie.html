@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- seo -->
     <meta id="description" name="description"
-        content="Смотрите лучшие фильмы, сериалы и мультфильмы онлайн на Kinogit. Наслаждайтесь качественным HD контентом без регистрации и смс. Новые релизы, рейтинги, обзоры и ежедневные обновления для всех любителей кино!">
+        content="Смотрите лучшие фильмы, сериалы и мультфильмы онлайн на Kinogit. Наслаждайтесь качественным HD контентом без регистрации и смс. Новые релизы, Рейтинги, обзоры и ежедневные обновления для всех любителей кино!">
     <meta id="keywords" name="keywords" content="Kinogit, Kinogit.us">
     <meta name="author" content="KinoGit">
     <link rel="canonical" id="canonical" href="https://kinogit.us/pages/watchMovie/watchMovie.html">
@@ -22,6 +22,7 @@
     <meta id="og_site_name" property="og:site_name" content="KinoGo.biz">
     <meta id="og_type" property="og:type" content="website">
 
+    <link rel="alternate" href="../../backend/" type="application/atom+xml" title="Atom">
     <!-- icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
@@ -267,7 +268,7 @@
                     <span class="release_date"></span>
                 </p>
                 <p class="move_info_cont_reyting">
-                    <span class="rating_text">рейтинг</span>
+                    <span class="rating_text">Рейтинг</span>
                     <img class='tmbd-logo' src="../../assets/svg/TMDB-icon.svg" alt="TMDB-icon">
                     <span class='reyting_stars_cont' id='reyting_stars_cont'>
                         <span class='reyting_stars_bg_width' id='reyting_stars_bg_width'></span>
@@ -347,7 +348,7 @@
                                 speed: 200,
                                 centeredSlides: true,
                                 slidesPerView: 'auto',
-                                // loop: true,
+                                loop: true,
                                 coverflowEffect: {
                                     depth: 40,
                                     modifier: 5,
@@ -394,7 +395,7 @@
     </header>
     <main class="main__section" id="main">
         <div class="about_film" id="about_film">
-            <h1 class="about_film_info_title"></h1>
+            <h2 class="about_film_info_title"></h2>
             <div class="about_film_cont">
                 <div class="about_film_poster">
                     <img id="about_film_poster_img" src="" alt="">
@@ -416,7 +417,7 @@
                     </p>
 
                     <p class="about_film_info_genres_vote_average" id="about_film_info_genres_vote_average">
-                        <span class="about_reyting">рейтинг TMDB - </span>
+                        <span class="about_reyting">Рейтинг TMDB - </span>
                         <span class="reyting_stars_cont about_film_reyting_stars_cont"></span>
                     </p>
 
@@ -455,7 +456,8 @@
         <div class="players-cont">
             <div class="slect-player">
                 <!-- player 1 -->
-                <p class="slect-player-btn player1" data-click-kinoplayer="kinoplayertop">плеер 1</p>
+                <p class="slect-player-btn player1" data-click-kinoplayer="kinoplayertop">плеер
+                    1</p>
                 <!-- player 2 -->
                 <p class="slect-player-btn slect-player-btn-active player2">плеер 2</p>
                 <!-- 3 triller en -->
@@ -471,7 +473,7 @@
             <!-- player 2 -->
             <div class="video-players video-player-active">
                 <span>Not movie!</span>
-                <div class="kinoplayer" id="kinoplayertop" height="100%" data-shearch="false" data-bg="#131313"
+                <div class="kinoplayer" id="kinoplayertop" data-player="alloha,trailer" height="100%" data-shearch="false" data-bg="#131313"
                     data-title="">
                 </div>
             </div>
@@ -631,15 +633,15 @@
         </div>
     </div>
 
-    <!-- <script type="text/javascript" src="get_user_info.js?v10"></script> -->
+    <script type="text/javascript" src="get_user_info.js?v10"></script>
     <script type="text/javascript" src="../../js/searchAnim/searchAnim.js?v10"></script>
     <script type="text/javascript" src="../../js/mob_open_close/mob_open_close.js?v10"></script>
-    <!-- <script type="text/javascript" src="../../js/registationForm.js?v10"></script> -->
+    <script type="text/javascript" src="../../js/registationForm.js?v10"></script>
     <script type="text/javascript" src="../../js/script.js?v10"></script>
-    <!-- <script type="text/javascript" src="guests.js?v10"></script> -->
+    <script type="text/javascript" src="guests.js?v10"></script>
     <script type="text/javascript" src="../../js/runGames.js?v10"></script>
     <script type="text/javascript" src="./links_share_logic.js?v10"></script>
-    <!-- <script type="text/javascript" src="./coments.js?v10"></script> -->
+    <script type="text/javascript" src="./coments.js?v10"></script>
     <!-- swipper  -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
