@@ -60,6 +60,8 @@ let set_lang = () => {
 let language = set_lang()[0],
     selectedGenre = [];
 
+console.log('language -> ', language);
+
 const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8',
     BASE_URL = 'https://api.themoviedb.org/3',
     IMG_URL = 'https://image.tmdb.org/t/p/w500',
@@ -68,10 +70,11 @@ const API_KEY = 'api_key=1cf50e6248dc270629e802686245c2c8',
 let currentPage = 1,
     nextPage = 2,
     prevPage = 3,
-    firstUrl = `${BASE_URL}/discover/movie?page=1&${language}?sort_by=popularity.desc&${API_KEY}`,
-    lastUrl = `${BASE_URL}/discover/movie?page=1&${language}?sort_by=popularity.desc&${API_KEY}`,
+    firstUrl = `${BASE_URL}/discover/movie?${language}&sort_by=popularity.desc&${API_KEY}&vote_average.gte=1&page=1`,
+    lastUrl = `${BASE_URL}/discover/movie?${language}&sort_by=popularity.desc&${API_KEY}&vote_average.gte=1&page=1`,
     totalPages = 100,
     movie_tv = 'movie';
+    
 
 const
     genres = [
@@ -451,7 +454,18 @@ const
 
 // top slider movies
 let get_top_movies = () => {
-    fetch(`${BASE_URL}/discover/movie?page=1&${language}&primary_release_year=${thisYear}&year=${thisYear}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre) + '&without_genres=16', options)
+    const today = new Date().toISOString().split('T')[0];
+    const url = `${BASE_URL}/discover/movie?&${language}&${API_KEY}` +
+        `&primary_release_year=${thisYear}` +
+        `&year=${thisYear}` +
+        `&sort_by=popularity.desc` +
+        `&with_genres=${encodeURIComponent(selectedGenre)}` +
+        `&without_genres=16` +
+        `&vote_average.gte=1` +
+        `&vote_count.gte=1` +
+        `&release_date.lte=${today}`;
+
+    fetch(url, options)
         // slider top 20
         .then(r => r.json())
         .then(r => {
@@ -486,8 +500,8 @@ let get_top_movies = () => {
                 headSwiper()
                 loaderOFF()
             }, 300);
-            getTop_move_andPlay()
-            get_top_Bookmark_InServer()
+            // getTop_move_andPlay()
+            // get_top_Bookmark_InServer()
         })
 }
 get_top_movies()
@@ -508,10 +522,26 @@ function setGenre() {
             selectedGenre = genre.id
 
             if (selectedGenre !== 16) {
-                lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_year=${year ? year : thisYear}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre) + '&without_genres=16'
+                lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                    `&${language}` +
+                    `&primary_release_year=${year ? year : thisYear}` +
+                    `&sort_by=popularity.desc` +
+                    `&${API_KEY}` +
+                    `&with_genres=${encodeURIComponent(selectedGenre)}` +
+                    `&without_genres=16` +
+                    `&vote_average.gte=1` +
+                    `&vote_count.gte=1`;
+
                 getMovies(lastUrl)
             } else {
-                lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_year=${year ? year : thisYear}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre)
+                lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                    `&${language}` +
+                    `&primary_release_year=${year ? year : thisYear}` +
+                    `&sort_by=popularity.desc` +
+                    `&${API_KEY}` +
+                    `&vote_average.gte=1` +
+                    `&with_genres=${encodeURIComponent(selectedGenre)}`;
+
                 getMovies(lastUrl)
             }
         })
@@ -543,11 +573,29 @@ function setGenre() {
                 let getYears = select__years__items[index].id.replaceAll(' ', '').split('-')
                 year = (String(getYears) !== 'до,1980') ? getYears : getYears[1]
 
+                console.log(year);
+
                 if (selectedGenre !== 16) {
-                    lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_date.gte=${year ? year[0] + '-01-01' : thisYear}&primary_release_date.lte=${year ? year[1] + '-12-31' : thisYear}&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre) + '&without_genres=16'
+                    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                        `&${language}` +
+                        `&primary_release_date.gte=${year ? year[0] + '-01-01' : thisYear + '-01-01'}` +
+                        `&primary_release_date.lte=${year ? year[1] + '-12-31' : thisYear + '-12-31'}` +
+                        `&${API_KEY}` +
+                        `&with_genres=${encodeURIComponent(selectedGenre)}` +
+                        `&without_genres=16` +
+                        `&vote_average.gte=1` +
+                        `&vote_count.gte=1`;
+
                     getMovies(lastUrl)
                 } else {
-                    lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_date.gte=${year ? year[0] + '-01-01' : thisYear}&primary_release_date.lte=${year ? year[1] + '-12-31' : thisYear}&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre)
+                    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                        `&${language}` +
+                        `&primary_release_date.gte=${year ? year[0] + '-01-01' : thisYear + '-01-01'}` +
+                        `&primary_release_date.lte=${year ? year[1] + '-12-31' : thisYear + '-12-31'}` +
+                        `&vote_average.gte=1` +
+                        `&${API_KEY}` +
+                        `&with_genres=${encodeURIComponent(selectedGenre)}`;
+
                     getMovies(lastUrl)
                 }
             })
@@ -580,10 +628,28 @@ function setGenre() {
 
 
                 if (selectedGenre !== 16) {
-                    lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_year=${year ? year[0] : thisYear}&year=${year ? year : thisYear}&with_original_language=${setCountries}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre) + '&without_genres=16'
+                    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                        `&${language}` +
+                        `&primary_release_year=${year ? year[0] : thisYear}` +  // Используем только один параметр для года
+                        `&year=${year ? year[0] : thisYear}` +  // Аналогично с year, если нужен
+                        `&with_original_language=${setCountries}` +
+                        `&sort_by=popularity.desc` +
+                        `&vote_average.gte=1` +
+                        `&${API_KEY}` +
+                        `&with_genres=${encodeURIComponent(selectedGenre)}` +
+                        `&without_genres=16`;
+
                     getMovies(lastUrl)
                 } else {
-                    lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_year=${year ? year[0] : thisYear}&year=${year ? year : thisYear}&with_original_language=${setCountries}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre)
+                    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                        `&${language}` +
+                        `&primary_release_year=${year ? year[0] : thisYear}` +
+                        `&year=${year ? year[0] : thisYear}` +  // Используем только один параметр для года
+                        `&with_original_language=${setCountries}` +
+                        `&sort_by=popularity.desc` +
+                        `&vote_average.gte=1` +
+                        `&${API_KEY}` +
+                        `&with_genres=${encodeURIComponent(selectedGenre)}`;
                     getMovies(lastUrl)
                 }
 
@@ -616,10 +682,27 @@ function setGenre() {
                 let getrating = select__rating__items[index].id
 
                 if (selectedGenre !== 16) {
-                    lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_year=${year ? year[0] : thisYear}&year=${year ? year : thisYear}&with_original_language=${getcountries}&vote_average.gte=${getrating}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre) + '&without_genres=16'
+                    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                        `&${language}` +
+                        `&primary_release_year=${year ? year[0] : thisYear}` + // Используем только один параметр для года
+                        `&year=${year ? year[0] : thisYear}` +  // Так как ты передаешь year как массив
+                        `&with_original_language=${getcountries}` +
+                        `&vote_average.gte=${getrating}` +
+                        `&sort_by=popularity.desc` +
+                        `&${API_KEY}` +
+                        `&with_genres=${encodeURIComponent(selectedGenre)}` + // Используем encodeURIComponent для правильной кодировки жанров
+                        `&without_genres=16`;
                     getMovies(lastUrl)
                 } else {
-                    lastUrl = BASE_URL + `/discover/movie?page=1&${language}&primary_release_year=${year ? year[0] : thisYear}&year=${year ? year : thisYear}&with_original_language=${getcountries}&vote_average.gte=${getrating}&sort_by=popularity.desc&` + API_KEY + '&with_genres=' + encodeURI(selectedGenre)
+                    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+                        `&${language}` +
+                        `&primary_release_year=${year ? year[0] : thisYear}` +  // Используем только первый год из массива year
+                        `&year=${year ? year[0] : thisYear}` +  // Также используем только первый год из year
+                        `&with_original_language=${getcountries}` +
+                        `&vote_average.gte=${getrating}` +
+                        `&sort_by=popularity.desc` +
+                        `&${API_KEY}` +
+                        `&with_genres=${encodeURIComponent(selectedGenre)}`;  // Используем encodeURIComponent для кодировки жанра
                     getMovies(lastUrl)
                 }
             })
@@ -680,7 +763,7 @@ function getMovies(url) {
                 if (data.results.length !== 0) {
                     showMovies(data.results, movie_tv);
 
-                    get_main_Bookmark_InServer()
+                    // get_main_Bookmark_InServer()
                     currentPage = data.page;
                     nextPage = currentPage + 1;
                     prevPage = currentPage - 1;
@@ -765,7 +848,7 @@ function showMovies(data, movie_tv) {
     })
 
     setGenre();
-    getTMain_move_andPlay()
+    // getTMain_move_andPlay()
 }
 
 // получить цвет
@@ -841,43 +924,43 @@ function pageCall(page) {
 }
 
 // get movie and play 
-function getTop_move_andPlay() {
-    document.querySelectorAll('.head-swiper-wrapper>.swiper-slide>.allMovie').forEach(el => {
-        el.addEventListener('click', () => {
-            fetch('../../backend/historyWatch.php', {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify(el.id)
-            })
-                .then(r => r.json())
-                .then(arr => {
-                    // console.log('ok -> ', arr);
-                })
-                .catch(err => {
-                    console.error('error -> ', err);
-                });
-        })
-    })
-}
+// function getTop_move_andPlay() {
+//     document.querySelectorAll('.head-swiper-wrapper>.swiper-slide>.allMovie').forEach(el => {
+//         el.addEventListener('click', () => {
+//             fetch('../../backend/historyWatch.php', {
+//                 method: 'post',
+//                 headers: { 'Content-Type': 'application/json', },
+//                 body: JSON.stringify(el.id)
+//             })
+//                 .then(r => r.json())
+//                 .then(arr => {
+//                     // console.log('ok -> ', arr);
+//                 })
+//                 .catch(err => {
+//                     console.error('error -> ', err);
+//                 });
+//         })
+//     })
+// }
 
-function getTMain_move_andPlay() {
-    document.querySelectorAll('.main__section__films>.movie>.allMovie').forEach(el => {
-        el.addEventListener('click', () => {
-            fetch('../../backend/historyWatch.php', {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify(el.id)
-            })
-                .then(r => r.json())
-                .then(arr => {
-                    // console.log('ok -> ', arr);
-                })
-                .catch(err => {
-                    console.error('error -> ', err);
-                });
-        })
-    })
-}
+// function getTMain_move_andPlay() {
+//     document.querySelectorAll('.main__section__films>.movie>.allMovie').forEach(el => {
+//         el.addEventListener('click', () => {
+//             fetch('../../backend/historyWatch.php', {
+//                 method: 'post',
+//                 headers: { 'Content-Type': 'application/json', },
+//                 body: JSON.stringify(el.id)
+//             })
+//                 .then(r => r.json())
+//                 .then(arr => {
+//                     // console.log('ok -> ', arr);
+//                 })
+//                 .catch(err => {
+//                     console.error('error -> ', err);
+//                 });
+//         })
+//     })
+// }
 
 // ------------------
 document.getElementById('top_movies').addEventListener('click', () => {
@@ -885,90 +968,116 @@ document.getElementById('top_movies').addEventListener('click', () => {
 })
 
 document.getElementById('animation').addEventListener('click', () => {
-    lastUrl = BASE_URL + `/discover/movie?page=1&${language}?sort_by=popularity.desc&${API_KEY}&with_genres=16`
+    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+        `&${language}` +
+        `&sort_by=popularity.desc` +
+        `&${API_KEY}` +
+        `&vote_average.gte=1` +
+        `&with_genres=16`;
+
     getMovies(lastUrl)
     document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
 
 document.getElementById('action').addEventListener('click', () => {
-    lastUrl = BASE_URL + `/discover/movie?page=1&${language}?sort_by=popularity.desc&${API_KEY}&with_genres=28` + '&without_genres=16'
+    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+        `&${language}` +
+        `&sort_by=popularity.desc` +
+        `&${API_KEY}` +
+        `&vote_average.gte=1` +
+        `&with_genres=28` +
+        `&without_genres=16`;
     getMovies(lastUrl)
     document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
 
 document.getElementById('comedy').addEventListener('click', () => {
-    lastUrl = BASE_URL + `/discover/movie?page=1&${language}?sort_by=popularity.desc&${API_KEY}&with_genres=35` + '&without_genres=16'
+    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+        `&${language}` +
+        `&sort_by=popularity.desc` +
+        `&api_key=${API_KEY}` +
+        `&vote_average.gte=1` +
+        `&with_genres=35` +
+        `&without_genres=16`;
+
     getMovies(lastUrl)
     document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
 
 document.getElementById('family').addEventListener('click', () => {
-    lastUrl = BASE_URL + `/discover/movie?page=1&${language}?sort_by=popularity.desc&${API_KEY}&with_genres=10751` + '&without_genres=16'
+    lastUrl = `${BASE_URL}/discover/movie?page=1` +
+        `&${language}` +
+        `&sort_by=popularity.desc` +
+        `&api_key=${API_KEY}` +
+        `&vote_average.gte=1` +
+        `&with_genres=10751` +
+        `&without_genres=16`;
+
     getMovies(lastUrl)
     document.getElementById('main__section__films').scrollIntoView({ behavior: 'smooth' })
 })
 
 // --------- send one id 015131 ------------
-function get_top_Bookmark_InServer() {
-    document.querySelectorAll('.top_movie_estimate').forEach(el => {
-        el.addEventListener('click', () => {
-            fetch('../../backend/bookmark.php', {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify(el.parentElement.querySelector('.allMovie').id)
-            })
-                .then(r => r.json())
-                .then(arr => {
-                    // console.log('ok -> ', arr);
-                    if (arr.registered) {
-                        el.classList.toggle('movie_estimate--active')
+// function get_top_Bookmark_InServer() {
+//     document.querySelectorAll('.top_movie_estimate').forEach(el => {
+//         el.addEventListener('click', () => {
+//             fetch('../../backend/bookmark.php', {
+//                 method: 'post',
+//                 headers: { 'Content-Type': 'application/json', },
+//                 body: JSON.stringify(el.parentElement.querySelector('.allMovie').id)
+//             })
+//                 .then(r => r.json())
+//                 .then(arr => {
+//                     // console.log('ok -> ', arr);
+//                     if (arr.registered) {
+//                         el.classList.toggle('movie_estimate--active')
 
-                        document.querySelectorAll('.main__section__films>.movie>.allMovie').forEach(el2 => {
-                            if (el2.id == el.parentElement.querySelector('.allMovie').id) {
-                                el2.parentElement.querySelector('.movie_estimate').classList.toggle('movie_estimate--active')
-                            }
-                        })
-                    } else {
-                        document.querySelector('.reg_popup').style.display = 'flex'
-                    }
-                })
-                .catch(err => {
-                    console.error('error -> ', err);
-                });
-        })
-    });
-}
+//                         document.querySelectorAll('.main__section__films>.movie>.allMovie').forEach(el2 => {
+//                             if (el2.id == el.parentElement.querySelector('.allMovie').id) {
+//                                 el2.parentElement.querySelector('.movie_estimate').classList.toggle('movie_estimate--active')
+//                             }
+//                         })
+//                     } else {
+//                         document.querySelector('.reg_popup').style.display = 'flex'
+//                     }
+//                 })
+//                 .catch(err => {
+//                     console.error('error -> ', err);
+//                 });
+//         })
+//     });
+// }
 
-function get_main_Bookmark_InServer() {
-    document.querySelectorAll('.main_movie_estimate').forEach(el => {
-        el.addEventListener('click', () => {
-            fetch('../../backend/bookmark.php', {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json', },
-                body: JSON.stringify(el.parentElement.querySelector('.allMovie').id)
-            })
-                .then(r => r.json())
-                .then(arr => {
-                    // console.log('ok -> ', arr);
-                    if (arr.registered) {
-                        el.classList.toggle('movie_estimate--active')
+// function get_main_Bookmark_InServer() {
+//     document.querySelectorAll('.main_movie_estimate').forEach(el => {
+//         el.addEventListener('click', () => {
+//             fetch('../../backend/bookmark.php', {
+//                 method: 'post',
+//                 headers: { 'Content-Type': 'application/json', },
+//                 body: JSON.stringify(el.parentElement.querySelector('.allMovie').id)
+//             })
+//                 .then(r => r.json())
+//                 .then(arr => {
+//                     // console.log('ok -> ', arr);
+//                     if (arr.registered) {
+//                         el.classList.toggle('movie_estimate--active')
 
-                        document.querySelectorAll('.head-swiper-slide>.allMovie').forEach(el2 => {
-                            if (el2.id == el.parentElement.querySelector('.allMovie').id) {
-                                el2.parentElement.querySelector('.movie_estimate').classList.toggle('movie_estimate--active')
-                            }
-                        })
-                    } else {
-                        document.querySelector('.reg_popup').style.display = 'flex'
-                    }
-                })
-                .catch(err => {
-                    console.error('error -> ', err);
-                });
-        })
-    });
-    // get_favorite()
-}
+//                         document.querySelectorAll('.head-swiper-slide>.allMovie').forEach(el2 => {
+//                             if (el2.id == el.parentElement.querySelector('.allMovie').id) {
+//                                 el2.parentElement.querySelector('.movie_estimate').classList.toggle('movie_estimate--active')
+//                             }
+//                         })
+//                     } else {
+//                         document.querySelector('.reg_popup').style.display = 'flex'
+//                     }
+//                 })
+//                 .catch(err => {
+//                     console.error('error -> ', err);
+//                 });
+//         })
+//     });
+//     // get_favorite()
+// }
 
 // function get_favorite() {
 //     fetch('../../backend/get_bookmark.php', {
