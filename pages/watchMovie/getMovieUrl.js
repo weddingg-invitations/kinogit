@@ -135,14 +135,14 @@ function kinoboxTv(movie_id, title_ru, title_original, yearr) {
                 position: 2,
                 domain: 'https://ugly-turkey.cdnmovies-stream.online'
             },
-            Hdvb: {
-                enable: true,
-                position: 3
-            },
-            Ashdi: {
-                enable: true,
-                position: 4
-            },
+            // Hdvb: {
+            //     enable: true,
+            //     position: 3
+            // },
+            // Ashdi: {
+            //     enable: true,
+            //     position: 4
+            // },
             params: {
                 cdnmovies: { domain: 'kinogit.us' }
             },
